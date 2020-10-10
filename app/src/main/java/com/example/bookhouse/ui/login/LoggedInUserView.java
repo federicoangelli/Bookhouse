@@ -15,3 +15,5 @@ class LoggedInUserView {
         return displayName;
     }
 }
+
+//  MALEE WAS HERE
