@@ -1,7 +1,8 @@
 package com.example.bookhouse.data;
 
 import com.example.bookhouse.data.model.LoggedInUser;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import java.io.IOException;
 
 /**
@@ -17,6 +18,7 @@ public class LoginDataSource {
                     new LoggedInUser(
                             java.util.UUID.randomUUID().toString(),
                             "Jane Doe");
+            testFunction();
             return new Result.Success<>(fakeUser);
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
@@ -26,4 +28,11 @@ public class LoginDataSource {
     public void logout() {
         // TODO: revoke authentication
     }
+
+    public void testFunction(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("message2");
+        myRef.setValue("Hello, world2");
+    }
+
 }
